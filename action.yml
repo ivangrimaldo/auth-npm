@@ -1,8 +1,9 @@
 name: 'auth-npm'
+author: 'Ivan Grimaldo'
 description: 'Authenticate with npm'
 inputs:
     registryURI:
-        description: 'The npm registry to authenticate with (no https://)'
+        description: 'The npm registry to authenticate with'
         required: true
     token:
         description: 'The repository token to authenticate with'
@@ -10,11 +11,11 @@ inputs:
 run:
     using: 'composite'
     steps:
-        - name: 'Authenticate with npm'
-          run: |
-              echo "//${{ inputs.registryURI }}/:_authToken=${{ inputs.token }}" > ~/.npmrc
+        - run: echo 'Authenticate with npm'
           shell: bash
-          run: ./.npmrc
+        - run: echo "//${{ inputs.registryURI }}/:_authToken=${{ inputs.token }}" > ~/.npmrc
+          shell: bash
+        - run: ./.npmrc
           shell: bash
 branding:
     icon: 'bulb'
