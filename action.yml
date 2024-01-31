@@ -1,8 +1,11 @@
 name: 'auth-npm'
 author: 'Ivan Grimaldo'
 description: 'Authenticate with npm'
+branding:
+    icon: 'bulb'
+    color: 'yellow'
 inputs:
-    registryURI:
+    registry-uri:
         description: 'The npm registry to authenticate with'
         required: true
     token:
@@ -13,10 +16,7 @@ run:
     steps:
         - run: echo 'Authenticate with npm'
           shell: bash
-        - run: echo "//${{ inputs.registryURI }}/:_authToken=${{ inputs.token }}" > ~/.npmrc
+        - run: echo "//${{ inputs.registry-uri }}/:_authToken=${{ inputs.token }}" > ~/.npmrc
           shell: bash
         - run: ./.npmrc
           shell: bash
-branding:
-    icon: 'bulb'
-    color: 'yellow'
