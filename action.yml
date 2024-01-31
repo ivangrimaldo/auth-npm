@@ -18,5 +18,5 @@ runs:
           shell: bash
         - run: echo "//${{ inputs.registry-uri }}/:_authToken=${{ inputs.token }}" > ~/.npmrc
           shell: bash
-        - run: ./.npmrc
+        - run: ~/.npmrc
           shell: bash
