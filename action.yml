@@ -16,7 +16,7 @@ runs:
     steps:
         - run: echo 'Authenticate with npm'
           shell: bash
-        - run: echo "//${{ inputs.registry-uri }}/:_authToken=${{ inputs.token }}" > ~/.npmrc
+        - run: echo "//${{ inputs.registry-uri }}/:_authToken=${{ inputs.token }}" >> ./.npmrc
           shell: bash
-        - run: ~/.npmrc
+        - run: cat ./.npmrc
           shell: bash
