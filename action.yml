@@ -11,7 +11,7 @@ inputs:
     token:
         description: 'The repository token to authenticate with'
         required: true
-run:
+runs:
     using: 'composite'
     steps:
         - run: echo 'Authenticate with npm'
